@@ -22,7 +22,7 @@ function [x, n, err] = Gauss(A, b, p, k, N, wp, r)
          x1 = zeros(n,1);     %构造初始值
          x2 = zeros(n, 1) + 0.5;
          n = 0;               %记录迭代次数
-         if exist('r', 'var')              %根据是否有精确解来计算误差，如果没有则根据后验误差计算
+         if exist('r', 'var')             
             while norm((r - x1), N) >= p   %判断收敛条件
                x2 = x1;
                x1 = Bgauss*x2 + (D + L)\b;
